@@ -2,7 +2,12 @@ import { useParams } from "react-router-dom"
 
 import { Sidebar, VideoPlayer } from "@/components"
 import { useMovieDetail, useMovieCredits, useTopRatedTV } from "@/api"
-import { findCrewByJob, getRandomItemsFromArray, getYearFromDate } from "@/lib"
+import {
+  findCrewByJob,
+  getRandomItemsFromArray,
+  getUTCDate,
+  getYearFromDate,
+} from "@/lib"
 import { Movie } from "@/api/types"
 
 export default function MovieDetail() {
@@ -21,11 +26,12 @@ export default function MovieDetail() {
         <div className="w-full h-full flex flex-col gap-6 px-3">
           <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="flex flex-wrap items-center font-bold md:text-2xl text-lg text-[#404040] md:gap-4 gap-2">
-              <p>{data?.title}</p>
+              <p data-testid="movie-title">{data?.title}</p>
 
               <span className="w-2 h-2 rounded-full bg-[#404040]" />
 
-              <p>{getYearFromDate(data?.release_date)}</p>
+              <p>{getUTCDate(data?.release_date)}</p>
+              {/* <p>{getYearFromDate(data?.release_date)}</p> */}
 
               <span className="w-2 h-2 rounded-full bg-[#404040]" />
 

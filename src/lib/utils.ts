@@ -6,6 +6,16 @@ export function getYearFromDate(dateString: string): number | null {
   return isNaN(year) ? null : year
 }
 
+export function getUTCDate(dateString?: string): string {
+  if (!dateString) return ""
+
+  const date = new Date(dateString)
+
+  const utcDate = new Date(date.toISOString())
+
+  return utcDate.toUTCString()
+}
+
 export function getCountryFromLanguageAbbreviation(
   abbreviation: string
 ): string | undefined {
