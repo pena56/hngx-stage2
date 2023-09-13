@@ -136,6 +136,8 @@ export enum Genre {
 }
 
 export function getGenreName(genreId: number): string | undefined {
-  const genreName = Object.keys(Genre).find((key) => Genre[key] === genreId)
+  const genreName = Object.keys(Genre).find(
+    (key) => Genre[key as keyof typeof Genre] === genreId
+  )
   return genreName || undefined
 }

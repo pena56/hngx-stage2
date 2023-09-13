@@ -6,7 +6,7 @@ import {
   findCrewByJob,
   getRandomItemsFromArray,
   getUTCDate,
-  getYearFromDate,
+  // getYearFromDate,
 } from "@/lib"
 import { Movie } from "@/api/types"
 
