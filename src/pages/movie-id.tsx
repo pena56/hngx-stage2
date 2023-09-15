@@ -2,12 +2,7 @@ import { useParams } from "react-router-dom"
 
 import { Sidebar, VideoPlayer } from "@/components"
 import { useMovieDetail, useMovieCredits, useTopRatedTV } from "@/api"
-import {
-  findCrewByJob,
-  getRandomItemsFromArray,
-  getUTCDate,
-  // getYearFromDate,
-} from "@/lib"
+import { findCrewByJob, getRandomItemsFromArray, getUTCDate } from "@/lib"
 import { Movie } from "@/api/types"
 
 export default function MovieDetail() {
@@ -30,8 +25,9 @@ export default function MovieDetail() {
 
               <span className="w-2 h-2 rounded-full bg-[#404040]" />
 
-              <p>{getUTCDate(data?.release_date)}</p>
-              {/* <p>{getYearFromDate(data?.release_date)}</p> */}
+              <p data-testid="movie-release-date">
+                {getUTCDate(data?.release_date)}
+              </p>
 
               <span className="w-2 h-2 rounded-full bg-[#404040]" />
 
@@ -39,7 +35,7 @@ export default function MovieDetail() {
 
               <span className="w-2 h-2 rounded-full bg-[#404040]" />
 
-              <p>{data?.runtime}</p>
+              <p data-testid="movie-runtime">{data?.runtime}</p>
 
               {data?.genres?.map((item) => (
                 <div
@@ -67,7 +63,10 @@ export default function MovieDetail() {
 
           <div className="w-full flex flex-col md:flex-row gap-6">
             <div className="flex flex-col gap-5 w-full md:w-[70%]">
-              <p className="text-[18px] md:text-[20px] text-[#333333]">
+              <p
+                data-testid="movie-overview"
+                className="text-[18px] md:text-[20px] text-[#333333]"
+              >
                 {data?.overview}
               </p>
 

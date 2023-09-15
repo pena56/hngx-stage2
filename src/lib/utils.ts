@@ -1,6 +1,8 @@
 import { Crew } from "@/api/types"
 
-export function getYearFromDate(dateString: string): number | null {
+export function getYearFromDate(dateString?: string): number | null {
+  if (!dateString) return null
+
   const date = new Date(dateString)
   const year = date.getFullYear()
   return isNaN(year) ? null : year

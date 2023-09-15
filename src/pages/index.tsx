@@ -23,7 +23,7 @@ function Index() {
           </div>
 
           <div className="w-full flex flex-wrap justify-between items-start">
-            {data?.results?.map((item) => (
+            {data?.results?.slice(0, 10)?.map((item) => (
               <MovieCard key={item.id} data={item} />
             ))}
           </div>
