@@ -18,3 +18,15 @@ git clone https://github.com/pena56/hngx-stage2.git
 VITE_TMDB_ACCESS_TOKEN=<Your TMDB Access Token>
 VITE_TMDB_BASE_API_URL=https://api.themoviedb.org/3
 ```
+
+- Run the dev server using this command
+
+```
+yarn dev
+```
+
+- Open your browser on
+
+```
+http://localhost:5173/
+```
